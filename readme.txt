@@ -250,7 +250,7 @@ now you can use :
 
 npm install 
 
-npm run dev // you must also have : php artisan serve 
+npm run dev // you must also have : php artisan serve and phpMyAdmin running at the same time 
 
 now go on the home page of php artisan serve
 
