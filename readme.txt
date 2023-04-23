@@ -292,7 +292,10 @@ Route::get('/dashboard', function () {
 Now if you create a new account you will get a Verify Email address in your inbox on Mailtrap
 
 
-// 
+// FIND ERROR WHEN NO ERROR MESSAGE POP UP 
+On the top of the page : 
+
+@dump($errors)
 
 
 
