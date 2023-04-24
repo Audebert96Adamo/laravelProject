@@ -41,30 +41,30 @@ class AdminController extends Controller
         return view('admin.admin_profile_edit', compact('editData'));
     } // End Method 
 
-    // public function StoreProfile(Request $request)
-    // {
-    //     $id = Auth::user()->id;
-    //     $data = User::find($id);
-    //     $data->name = $request->name;
-    //     $data->email = $request->email;
-    //     $data->username = $request->username;
+    public function StoreProfile(Request $request)
+    {
+        $id = Auth::user()->id;
+        $data = User::find($id);
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->username = $request->username;
 
-    //     if ($request->file('profile_image')) {
-    //         $file = $request->file('profile_image');
+        if ($request->file('profile_image')) {
+            $file = $request->file('profile_image');
 
-    //         $filename = date('YmdHi') . $file->getClientOriginalName();
-    //         $file->move(public_path('upload/admin_images'), $filename);
-    //         $data['profile_image'] = $filename;
-    //     }
-    //     $data->save();
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('upload/admin_images'), $filename);
+            $data['profile_image'] = $filename;
+        }
+        $data->save();
 
-    //     $notification = array(
-    //         'message' => 'Admin Profile Updated Successfully',
-    //         'alert-type' => 'info'
-    //     );
+        $notification = array(
+            'message' => 'Admin Profile Updated Successfully',
+            'alert-type' => 'info'
+        );
 
-    //     return redirect()->route('admin.profile')->with($notification);
-    // } // End Method
+        return redirect()->route('admin.profile')->with($notification);
+    } // End Method
 
 
     // public function ChangePassword()
