@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -26,21 +26,20 @@ class AdminController extends Controller
     } // End Method 
 
 
-    // public function Profile()
-    // {
-    //     $id = Auth::user()->id;
-    //     $adminData = User::find($id);
-    //     return view('admin.admin_profile_view', compact('adminData'));
-    // } // End Method 
+    public function Profile()
+    {
+        $id = Auth::user()->id;
+        $adminData = User::find($id);
+        return view('admin.admin_profile_view', compact('adminData'));
+    } // End Method 
 
+    public function EditProfile()
+    {
 
-    // public function EditProfile()
-    // {
-
-    //     $id = Auth::user()->id;
-    //     $editData = User::find($id);
-    //     return view('admin.admin_profile_edit', compact('editData'));
-    // } // End Method 
+        $id = Auth::user()->id;
+        $editData = User::find($id);
+        return view('admin.admin_profile_edit', compact('editData'));
+    } // End Method 
 
     // public function StoreProfile(Request $request)
     // {
