@@ -17,6 +17,7 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
+        // toster msg 
         $notification = array(
             'message' => 'User Logout Successfully',
             'alert-type' => 'success'
@@ -57,7 +58,7 @@ class AdminController extends Controller
             $data['profile_image'] = $filename;
         }
         $data->save();
-
+        // toster msg 
         $notification = array(
             'message' => 'Admin Profile Updated Successfully',
             'alert-type' => 'info'
