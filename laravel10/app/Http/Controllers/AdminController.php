@@ -68,36 +68,36 @@ class AdminController extends Controller
     } // End Method
 
 
-    // public function ChangePassword()
-    // {
+    public function ChangePassword()
+    {
 
-    //     return view('admin.admin_change_password');
-    // } // End Method
+        return view('admin.admin_change_password');
+    } // End Method
 
 
-    // public function UpdatePassword(Request $request)
-    // {
+    public function UpdatePassword(Request $request)
+    {
 
-    //     $validateData = $request->validate([
-    //         'oldpassword' => 'required',
-    //         'newpassword' => 'required',
-    //         'confirm_password' => 'required|same:newpassword',
+        $validateData = $request->validate([
+            'oldpassword' => 'required',
+            'newpassword' => 'required',
+            'confirm_password' => 'required|same:newpassword',
 
-    //     ]);
+        ]);
 
-    //     $hashedPassword = Auth::user()->password;
-    //     if (Hash::check($request->oldpassword, $hashedPassword)) {
-    //         $users = User::find(Auth::id());
-    //         $users->password = bcrypt($request->newpassword);
-    //         $users->save();
+        $hashedPassword = Auth::user()->password;
+        if (Hash::check($request->oldpassword, $hashedPassword)) {
+            $users = User::find(Auth::id());
+            $users->password = bcrypt($request->newpassword);
+            $users->save();
 
-    //         session()->flash('message', 'Password Updated Successfully');
-    //         return redirect()->back();
-    //     } else {
-    //         session()->flash('message', 'Old password is not match');
-    //         return redirect()->back();
-    //     }
-    // } // End Method
+            session()->flash('message', 'Password Updated Successfully');
+            return redirect()->back();
+        } else {
+            session()->flash('message', 'Old password is not match');
+            return redirect()->back();
+        }
+    } // End Method
 
 
 
