@@ -297,7 +297,18 @@ On the top of the page :
 
 @dump($errors)
 
+// TAKE A BACKUP
 
+go to phpMyAdmin go to your db then click export/custom/If NOT EXISTS/export
+
+
+// GENERATIN MIGRATIONS
+
+php artisan make:model HomeSlide -m
+
+then once the home_slides_table.php and Models/HomeSlide.php are set up you can use :
+
+php artisan migrate
 
 
 
