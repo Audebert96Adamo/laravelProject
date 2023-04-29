@@ -38,6 +38,11 @@ to stop the server simply use : Ctrl+C
 // CREATE CONTROLLER
 
 - php artisan make:controller foldername/CONTROLLERNAME
+
+// HOME SLIDER CONTROLLER
+
+php artisan make:controller Home/HomeSliderController
+
 // BLADE SYNTAX
 
 <?php
@@ -310,8 +315,23 @@ then once the home_slides_table.php and Models/HomeSlide.php are set up you can 
 
 php artisan migrate
 
+then go to phpMyAdmin and you'll see a new table "home_slides" created
 
+// IMAGE INTERVENTION PACKAGE
 
+in command prompt :
+
+composer require intervention/image
+
+go to config/app.php in 'provider' between : Package Service Providers...
+
+past :    Intervention\Image\ImageServiceProvider::class,
+
+then in 'aliases' past : 'Image' => Intervention\Image\Facades\Image::class
+
+Now use in the command prompt : 
+
+php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
 
 
 
