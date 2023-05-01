@@ -39,9 +39,13 @@ to stop the server simply use : Ctrl+C
 
 - php artisan make:controller foldername/CONTROLLERNAME
 
-// HOME SLIDER CONTROLLER
+** HOME SLIDER CONTROLLER **
 
 php artisan make:controller Home/HomeSliderController
+
+** About Controller **
+
+php artisan make:controller Home/AboutController
 
 // BLADE SYNTAX
 
@@ -308,14 +312,20 @@ go to phpMyAdmin go to your db then click export/custom/If NOT EXISTS/export
 
 
 // GENERATIN MIGRATIONS
-
+** create Home slide table **
 php artisan make:model HomeSlide -m
 
-then once the home_slides_table.php and Models/HomeSlide.php are set up you can use :
+then once the create_home_slides_table.php and Models/HomeSlide.php are set up you can use :
 
 php artisan migrate
 
 then go to phpMyAdmin and you'll see a new table "home_slides" created
+** create About table **
+php artisan make:model About -m
+
+set up create_abouts_table.php and About.php
+
+php artisan migrate
 
 // IMAGE INTERVENTION PACKAGE
 
