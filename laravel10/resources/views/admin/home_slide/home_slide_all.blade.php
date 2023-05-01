@@ -41,7 +41,7 @@
               <div class="row mb-3">
                 <label for="home_slide" class="col-sm-2 col-form-label">Slider Image</label>
                 <div class="col-sm-10">
-                  <input name="home_slide" class="form-control" type="file" placeholder="" value="" id="">
+                  <input name="home_slide" class="form-control" type="file" placeholder="" value="" id="image">
                 </div>
               </div>
               <!-- end row -->
