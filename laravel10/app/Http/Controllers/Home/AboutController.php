@@ -100,9 +100,11 @@ class AboutController extends Controller
         $multiImage = MultiImage::findOrFail($id);
         return view('admin.about_page.edit_multi_image', compact('multiImage'));
     } // End Method 
+
     public function UpdateMultiImage(Request $request)
     {
         $multi_image_id = $request->id;
+
 
         if ($request->file('multi_image')) {
             $image = $request->file('multi_image');
@@ -112,7 +114,6 @@ class AboutController extends Controller
             $save_url = 'upload/multi/' . $name_gen;
 
             MultiImage::findOrFail($multi_image_id)->update([
-
                 'multi_image' => $save_url,
             ]);
 
@@ -123,5 +124,22 @@ class AboutController extends Controller
 
             return redirect()->route('all.multi.image')->with($notification);
         }
+    } // End Method 
+
+    public function DeleteMultiImage($id)
+    {
+        $multi = MultiImage::findOrFail($id);
+
+        $img = $multi->multi_image;
+        unlink($img);
+
+        MultiImage::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Multi Image deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     } // End Method 
 }
