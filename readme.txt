@@ -313,6 +313,7 @@ go to phpMyAdmin go to your db then click export/custom/If NOT EXISTS/export
 
 // GENERATIN MIGRATIONS
 ** create Home slide table **
+
 php artisan make:model HomeSlide -m
 
 then once the create_home_slides_table.php and Models/HomeSlide.php are set up you can use :
@@ -321,9 +322,18 @@ php artisan migrate
 
 then go to phpMyAdmin and you'll see a new table "home_slides" created
 ** create About table **
+
 php artisan make:model About -m
 
 set up create_abouts_table.php and About.php
+
+php artisan migrate
+
+** create MultiImage table **
+
+php artisan make:model MultiImage -m
+
+set up create_multi_images_table.php and MultiImage.php
 
 php artisan migrate
 
