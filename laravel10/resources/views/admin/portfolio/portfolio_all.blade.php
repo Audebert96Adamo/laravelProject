@@ -67,5 +67,7 @@
       </div> <!-- container-fluid -->
 
     </div>
+  </div>
+</div>
 
-    @endsection
+@endsection
