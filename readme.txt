@@ -39,13 +39,17 @@ to stop the server simply use : Ctrl+C
 
 - php artisan make:controller foldername/CONTROLLERNAME
 
-** HOME SLIDER CONTROLLER **
+** Home Slider Controller **
 
 php artisan make:controller Home/HomeSliderController
 
 ** About Controller **
 
 php artisan make:controller Home/AboutController
+
+** Portfolio Controller **
+
+php artisan make:controller Home/PortfolioController
 
 // BLADE SYNTAX
 
@@ -334,6 +338,14 @@ php artisan migrate
 php artisan make:model MultiImage -m
 
 set up create_multi_images_table.php and MultiImage.php
+
+php artisan migrate
+
+** create Portfolio table **
+
+php artisan make:model Portfolio -m
+
+set up create_portfolio_table.php and Portfolio.php
 
 php artisan migrate
 
