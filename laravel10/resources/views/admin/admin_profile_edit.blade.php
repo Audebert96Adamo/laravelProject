@@ -12,7 +12,7 @@
 
             <h4 class="card-title">Edit Profile Page</h4><br><br>
 
-            <form method="post" action="{{ route('update.password') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('store.profile') }}" enctype="multipart/form-data">
               @csrf
 
               <div class="row mb-3">
