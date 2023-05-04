@@ -51,6 +51,10 @@ php artisan make:controller Home/AboutController
 
 php artisan make:controller Home/PortfolioController
 
+** Blog Category Controller **
+
+php artisan make:controller Home/BlogCategoryController
+
 // BLADE SYNTAX
 
 <?php
@@ -346,6 +350,14 @@ php artisan migrate
 php artisan make:model Portfolio -m
 
 set up create_portfolio_table.php and Portfolio.php
+
+php artisan migrate
+
+** create Blog Category table **
+
+php artisan make:model BlogCategory -m
+
+set up create_blog_categories.php and BlogCategory.php
 
 php artisan migrate
 
