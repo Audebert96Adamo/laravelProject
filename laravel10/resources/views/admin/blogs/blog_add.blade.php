@@ -16,18 +16,18 @@
         <div class="card">
           <div class="card-body">
 
-            <h4 class="card-title">Blog Page</h4><br><br>
-            <form method="post" action="{{ route('store.portfolio') }}" enctype="multipart/form-data">
+            <h4 class="card-title">Add Blog Page</h4><br><br>
+            <form method="post" action="{{ route('store.blog') }}" enctype="multipart/form-data">
               @csrf
 
               <div class="row mb-3">
                 <label for="blog_category_id" class="col-sm-2 col-form-label">Blog Category Name</label>
                 <div class="col-sm-10">
                   <select name="blog_category_id" class="form-select" aria-label="Default select example">
-                    <option selected="">Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    @foreach($categories as $cat)
+                    <option value="{{ $cat->id }}">{{ $cat->blog_category }}</option>
+                    @endforeach
+
                   </select>
                 </div>
               </div>
@@ -63,6 +63,9 @@
               <div class="row mb-3">
                 <label for="blog_image" class="col-sm-2 col-form-label">Blog Image</label>
                 <div class="col-sm-10">
+                  @error('blog_image')
+                  <span class="text-danger">{{ $message }}</span>
+                  @enderror
                   <input name="blog_image" class="form-control" type="file" placeholder="" id="image">
                 </div>
               </div>

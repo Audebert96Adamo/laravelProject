@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('blog_title')->nullable;
             $table->string('blog_image')->nullable;
             $table->string('blog_tags')->nullable;
-            $table->string('blog_description')->nullable;
+            $table->text('blog_description')->nullable;
             $table->timestamps();
         });
     }
