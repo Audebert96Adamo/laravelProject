@@ -361,6 +361,14 @@ set up create_blog_categories.php and BlogCategory.php
 
 php artisan migrate
 
+** create Blog table **
+
+php artisan make:model Blog -m
+
+set up create_blog.php and Blog.php
+
+php artisan migrate
+
 // IMAGE INTERVENTION PACKAGE
 
 in command prompt :
