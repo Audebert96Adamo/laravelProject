@@ -30,6 +30,7 @@ class BlogController extends Controller
             'blog_category_id' => 'required',
             'blog_image' => 'required',
         ], [
+            'blog_category_id.required' => 'Blog Category Name is required',
             'blog_title.required' => 'Blog Title is required',
             'blog_image.required' => 'Blog Image is required',
         ]);
@@ -63,6 +64,50 @@ class BlogController extends Controller
         $categories = BlogCategory::orderBy('blog_category', 'ASC')->get();
         return view('admin.blogs.blog_edit', compact('blog', 'categories'));
     } // End Method 
+
+    public function UpdateBlog(Request $request)
+    {
+        $blog_id = $request->id;
+
+        $request->validate([
+            'blog_title' => 'required',
+        ], [
+            'blog_title.required' => 'Blog Title is required',
+        ]);
+
+        if ($request->file('blog_image')) {
+            $image = $request->file('blog_image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+
+            Image::make($image)->resize(430, 327)->save('upload/blog/' . $name_gen);
+            $save_url = 'upload/blog/' . $name_gen;
+
+            Blog::findOrFail($blog_id)->update([
+                'blog_category_id' => $request->blog_category_id,
+                'blog_title' => $request->blog_title,
+                'blog_image' => $save_url,
+                'blog_tags' => $request->blog_tags,
+                'blog_description' => $request->blog_description,
+            ]);
+            $notification = array(
+                'message' => 'Blog Updated Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('all.blog')->with($notification);
+        } else {
+            Blog::findOrFail($blog_id)->update([
+                'blog_category_id' => $request->blog_category_id,
+                'blog_title' => $request->blog_title,
+                'blog_tags' => $request->blog_tags,
+                'blog_description' => $request->blog_description,
+            ]);
+            $notification = array(
+                'message' => 'Blog Updated Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('all.blog')->with($notification);
+        }
+    } // End Method
 
     public function DeleteBlog($id)
     {

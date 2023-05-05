@@ -23,7 +23,11 @@
               <div class="row mb-3">
                 <label for="blog_category_id" class="col-sm-2 col-form-label">Blog Category Name</label>
                 <div class="col-sm-10">
+                  @error('blog_category_id')
+                  <span class="text-danger">{{ $message }}</span>
+                  @enderror
                   <select name="blog_category_id" class="form-select" aria-label="Default select example">
+                    <option selected=""></option>
                     @foreach($categories as $cat)
                     <option value="{{ $cat->id }}">{{ $cat->blog_category }}</option>
                     @endforeach
