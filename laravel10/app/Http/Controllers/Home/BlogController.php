@@ -16,11 +16,13 @@ class BlogController extends Controller
         $blogs = Blog::latest()->get();
         return view('admin.blogs.blog_all', compact('blogs'));
     } // End Method 
+
     public function AddBlog()
     {
         $categories = BlogCategory::orderBy('blog_category', 'ASC')->get();
         return view('admin.blogs.blog_add', compact('categories'));
     } // End Method 
+
     public function StoreBlog(Request $request)
     {
         $request->validate([
@@ -53,5 +55,24 @@ class BlogController extends Controller
         );
 
         return redirect()->route('all.blog')->with($notification);
+    } // End Method 
+
+    public function EditBlog($id)
+    {
+        $blog = Blog::findOrFail($id);
+        $categories = BlogCategory::orderBy('blog_category', 'ASC')->get();
+        return view('admin.blogs.blog_edit', compact('blog', 'categories'));
+    } // End Method 
+
+    public function DeleteBlog($id)
+    {
+        Blog::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Blog deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     } // End Method 
 }
