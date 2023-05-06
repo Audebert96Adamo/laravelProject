@@ -75,6 +75,10 @@ class BlogController extends Controller
             'blog_title.required' => 'Blog Title is required',
         ]);
 
+        $notification = array(
+            'message' => 'Blog Updated Successfully',
+            'alert-type' => 'success'
+        );
         if ($request->file('blog_image')) {
             $image = $request->file('blog_image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
@@ -89,10 +93,7 @@ class BlogController extends Controller
                 'blog_tags' => $request->blog_tags,
                 'blog_description' => $request->blog_description,
             ]);
-            $notification = array(
-                'message' => 'Blog Updated Successfully',
-                'alert-type' => 'success'
-            );
+
             return redirect()->route('all.blog')->with($notification);
         } else {
             Blog::findOrFail($blog_id)->update([
@@ -101,10 +102,7 @@ class BlogController extends Controller
                 'blog_tags' => $request->blog_tags,
                 'blog_description' => $request->blog_description,
             ]);
-            $notification = array(
-                'message' => 'Blog Updated Successfully',
-                'alert-type' => 'success'
-            );
+
             return redirect()->route('all.blog')->with($notification);
         }
     } // End Method
@@ -119,5 +117,13 @@ class BlogController extends Controller
         );
 
         return redirect()->back()->with($notification);
+    } // End Method 
+
+    public function BlogDetails($id)
+    {
+        $blog = Blog::findOrFail($id);
+        $allblogs = Blog::latest()->limit(5)->get();
+        $categories = BlogCategory::orderBy('blog_category', 'ASC')->get();
+        return view('frontend.blog_details', compact('blog', 'allblogs', 'categories'));
     } // End Method 
 }

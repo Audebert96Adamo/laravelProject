@@ -25,9 +25,9 @@
 <body>
 
   <!-- preloader-start -->
-  <div id="preloader">
+  <!-- <div id="preloader">
     <div class="rasalina-spin-box"></div>
-  </div>
+  </div> -->
   <!-- preloader-end -->
 
   <!-- Scroll-top -->
