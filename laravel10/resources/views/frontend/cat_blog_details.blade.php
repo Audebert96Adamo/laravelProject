@@ -9,11 +9,11 @@
       <div class="row justify-content-center">
         <div class="col-xl-6 col-lg-8 col-md-10">
           <div class="breadcrumb__wrap__content">
-            <h2 class="title">{{ $blog->blog_title }}</h2>
+            <h2 class="title"></h2>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
+                <li class="breadcrumb-item active" aria-current="page">Blog</li>
               </ol>
             </nav>
           </div>
@@ -34,27 +34,43 @@
   <!-- breadcrumb-area-end -->
 
 
-  <!-- blog-details-area -->
-  <section class="standard__blog blog__details">
+  <!-- blog-area -->
+  <section class="standard__blog">
     <div class="container">
       <div class="row">
+
         <div class="col-lg-8">
           <div class="standard__blog__post">
-            <div class="row justify-content-center">
-              <img src="{{ asset($blog->blog_image) }}" alt="">
+
+            @foreach($blogpost as $item)
+            <div class="standard__blog__thumb">
+              <a href="blog-details.html"><img src="{{ asset($item->blog_image) }}" alt=""></a>
+              <a href="blog-details.html" class="blog__link"><i class="far fa-long-arrow-right"></i></a>
             </div>
-            <br>
-            <div class="blog__details__content services__details__content">
+            <div class="standard__blog__content">
+              <div class="blog__post__avatar">
+                <div class="thumb"><img src="{{ asset($item->blog_image) }}" alt=""></div>
+                <span class="post__by">By : <a href="#">Halina Spond</a></span>
+              </div>
+              <h2 class="title"><a href="blog-details.html">{{ $item->blog_title }}</a></h2>
+              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
               <ul class="blog__post__meta">
-                <li><i class="fal fa-calendar-alt"></i>{{ Carbon\Carbon::parse($blog->created_at)->diffForHumans() }}</li>
+                <li><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</li>
+              </ul>
+            </div>
+            @endforeach
+
+          </div>
+          <div class="pagination-wrap">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#"><i class="far fa-long-arrow-left"></i></a></li>
 
               </ul>
-              <h2 class="title">{{ $blog->blog_title }}</h2>
-              <p>{!! $blog->blog_description !!}</p>
-
-            </div>
+            </nav>
           </div>
         </div>
+
         <div class="col-lg-4">
           <aside class="blog__sidebar">
 
@@ -64,7 +80,7 @@
                 <button type="submit"><i class="fal fa-search"></i></button>
               </form>
             </div>
-
+            <!-- RECENT BLOG  -->
             <div class="widget">
               <h4 class="widget-title">Recent Blog</h4>
               <ul class="rc__post">
@@ -83,7 +99,8 @@
 
               </ul>
             </div>
-
+            <!-- RECENT BLOG END -->
+            <!-- CATEGORIES  -->
             <div class="widget">
               <h4 class="widget-title">Categories</h4>
 
@@ -93,22 +110,24 @@
                 @endforeach
               </ul>
             </div>
-
+            <!-- CATEGORIES END -->
+            <!-- TAGS  -->
             <div class="widget">
               <h4 class="widget-title"> Tags</h4>
               <ul class="sidebar__tags">
 
-                <li><a href="blog.html">{{ $blog->blog_tags }}</a></li>
+                <li><a href="blog.html"></a></li>
 
               </ul>
             </div>
+            <!-- TAGS END -->
+
           </aside>
         </div>
-
       </div>
     </div>
   </section>
-  <!-- blog-details-area-end -->
+  <!-- blog-area-end -->
 
 
   <!-- contact-area -->
