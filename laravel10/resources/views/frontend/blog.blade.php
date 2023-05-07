@@ -9,7 +9,7 @@
       <div class="row justify-content-center">
         <div class="col-xl-6 col-lg-8 col-md-10">
           <div class="breadcrumb__wrap__content">
-            <h2 class="title">{{ $categoryname->blog_category }}</h2>
+            <h2 class="title">All Blogs</h2>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -42,7 +42,7 @@
         <div class="col-lg-8">
           <div class="standard__blog__post">
 
-            @foreach($blogpost as $item)
+            @foreach($allblogs as $item)
             <div class="standard__blog__thumb">
               <a href="blog-details.html"><img src="{{ asset($item->blog_image) }}" alt=""></a>
               <a href="{{ route('blog.details', $item->id) }}" class="blog__link"><i class="far fa-long-arrow-right"></i></a>
@@ -82,7 +82,7 @@
             </div>
             <!-- RECENT BLOG  -->
             <div class="widget">
-              <h4 class="widget-title">Recent Blog</h4>
+              <h4 class="widget-title">All Blog</h4>
               <ul class="rc__post">
 
                 @foreach($allblogs as $all)

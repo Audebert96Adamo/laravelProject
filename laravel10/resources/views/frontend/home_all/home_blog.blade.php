@@ -15,7 +15,7 @@ $blogs = App\Models\Blog::latest()->limit(3)->get();
           </div>
           <div class="blog__post__content">
             <span class="date">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
-            <h3 class="title"><a href="blog-details.html">{{ $item->blog_title }}</a></h3>
+            <h3 class="title"><a href="{{ route('blog.details', $item->id) }}">{{ $item->blog_title }}</a></h3>
             <a href="{{ route('blog.details', $item->id) }}" class="read__more">Read mORe</a>
           </div>
         </div>

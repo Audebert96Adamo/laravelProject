@@ -64,7 +64,7 @@
                 <button type="submit"><i class="fal fa-search"></i></button>
               </form>
             </div>
-
+            <!-- RECENT BLOG  -->
             <div class="widget">
               <h4 class="widget-title">Recent Blog</h4>
               <ul class="rc__post">
@@ -83,7 +83,8 @@
 
               </ul>
             </div>
-
+            <!-- RECENT BLOG END -->
+            <!-- CATEGORIES  -->
             <div class="widget">
               <h4 class="widget-title">Categories</h4>
 
@@ -93,7 +94,8 @@
                 @endforeach
               </ul>
             </div>
-
+            <!-- CATEGORIES  END -->
+            <!-- TAGS  -->
             <div class="widget">
               <h4 class="widget-title"> Tags</h4>
               <ul class="sidebar__tags">
@@ -102,6 +104,7 @@
 
               </ul>
             </div>
+            <!-- TAGS  END-->
           </aside>
         </div>
 
