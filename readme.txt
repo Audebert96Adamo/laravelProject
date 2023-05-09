@@ -373,6 +373,14 @@ set up create_blog.php and Blog.php
 
 php artisan migrate
 
+** create Footer table **
+
+php artisan make:model Footer -m
+
+set up create_footers.php and Footer.php
+
+php artisan migrate
+
 // IMAGE INTERVENTION PACKAGE
 
 in command prompt :
