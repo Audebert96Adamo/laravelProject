@@ -63,6 +63,10 @@ php artisan make:controller Home/BlogController
 
 php artisan make:controller Home/FooterController
 
+** Contact Controller **
+
+php artisan make:controller Home/ContactController
+
 // BLADE SYNTAX
 
 <?php
@@ -382,6 +386,14 @@ php artisan migrate
 php artisan make:model Footer -m
 
 set up create_footers.php and Footer.php
+
+php artisan migrate
+
+** create Contact table **
+
+php artisan make:model Contact -m
+
+set up create_contacts.php and Contact.php
 
 php artisan migrate
 
