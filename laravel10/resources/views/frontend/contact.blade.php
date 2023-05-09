@@ -42,23 +42,40 @@
   <!-- contact-area -->
   <div class="contact-area">
     <div class="container">
-      <form action="#" class="contact__form">
+      <form method="post" action="{{ route('store.message') }}" class="contact__form">
+        @csrf
+
         <div class="row">
           <div class="col-md-6">
-            <input type="text" placeholder="Enter your name*">
+            @error('name')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <input name="name" require type="text" placeholder="Enter your name*">
           </div>
           <div class="col-md-6">
-            <input type="email" placeholder="Enter your mail*">
+            @error('email')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <input name="email" type="email" placeholder="Enter your mail*">
           </div>
           <div class="col-md-6">
-            <input type="text" placeholder="Enter your subject*">
+            @error('subject')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <input name="subject" type="text" placeholder="Enter your subject*">
           </div>
           <div class="col-md-6">
-            <input type="text" placeholder="Your Budget*">
+            @error('phone')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <input name="phone" type="text" placeholder="Enter your phone*">
           </div>
         </div>
+        @error('message')
+        <span class="text-danger">{{ $message }}</span>
+        @enderror
         <textarea name="message" id="message" placeholder="Enter your massage*"></textarea>
-        <button type="submit" class="btn">send massage</button>
+        <button type="submit" class="btn">send message</button>
       </form>
     </div>
   </div>
@@ -71,7 +88,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="contact__info">
             <div class="contact__info__icon">
-              <img src="assets/img/icons/contact_icon01.png" alt="">
+              <img src="{{ asset('frontend/assets/img/icons/contact_icon01.png') }}" alt="">
             </div>
             <div class="contact__info__content">
               <h4 class="title">address line</h4>
@@ -82,7 +99,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="contact__info">
             <div class="contact__info__icon">
-              <img src="assets/img/icons/contact_icon02.png" alt="">
+              <img src="{{ asset('frontend/assets/img/icons/contact_icon02.png') }}" alt="">
             </div>
             <div class="contact__info__content">
               <h4 class="title">Phone Number</h4>
@@ -94,7 +111,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="contact__info">
             <div class="contact__info__icon">
-              <img src="assets/img/icons/contact_icon03.png" alt="">
+              <img src="{{ asset('frontend/assets/img/icons/contact_icon03.png') }}" alt="">
             </div>
             <div class="contact__info__content">
               <h4 class="title">Mail Address</h4>
