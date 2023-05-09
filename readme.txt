@@ -59,6 +59,10 @@ php artisan make:controller Home/BlogCategoryController
 
 php artisan make:controller Home/BlogController
 
+** Footer Controller **
+
+php artisan make:controller Home/FooterController
+
 // BLADE SYNTAX
 
 <?php

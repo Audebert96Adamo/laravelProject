@@ -11,7 +11,7 @@
           <div class="card-body">
 
             <h4 class="card-title">Footer Page</h4><br><br>
-            <form method="post" action="{{ route('update.about') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('update.footer') }}" enctype="multipart/form-data">
               @csrf
 
               <input type="hidden" name="id" value="{{ $allfooter->id }}">
