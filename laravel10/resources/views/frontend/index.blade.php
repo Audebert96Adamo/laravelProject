@@ -1,4 +1,10 @@
 @extends('frontend.main_master')
+
+@section('title')
+Home | Portfolio website
+@endsection
+
+
 @section('main')
 
 <!-- banner-area -->

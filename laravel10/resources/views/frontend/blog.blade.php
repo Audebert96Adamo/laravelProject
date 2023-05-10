@@ -1,4 +1,9 @@
 @extends('frontend.main_master')
+
+@section('title')
+All Blog | Portfolio website
+@endsection
+
 @section('main')
 
 <main>

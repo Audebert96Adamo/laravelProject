@@ -1,4 +1,9 @@
 @extends('frontend.main_master')
+
+@section('title')
+{{ $categoryname->blog_category }} | Portfolio website
+@endsection
+
 @section('main')
 
 <main>
