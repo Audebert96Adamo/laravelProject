@@ -11,15 +11,13 @@
           <div class="card-body">
 
             <h4 class="card-title">Add Blog Category</h4><br><br>
-            <form method="post" action="{{ route('store.blog.category') }}">
+            <form method="post" id="myForm" action="{{ route('store.blog.category') }}">
               @csrf
 
               <div class="row mb-3">
                 <label for="blog_category" class="col-sm-2 col-form-label">Blog Category Name</label>
-                <div class="col-sm-10">
-                  @error('blog_category')
-                  <span class="text-danger">{{ $message }}</span>
-                  @enderror
+                <div class="form-group col-sm-10">
+
                   <input name="blog_category" class="form-control" type="text" placeholder="" id="">
                 </div>
               </div>
@@ -39,14 +37,34 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#image').change(function(e) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        $('#showImage').attr('src', e.target.result);
+    $('#myForm').validate({
+      rules: {
+        blog_category: {
+          required: true,
+        },
+        // blog_title: {
+        //   required: true,
+        // },
+      },
+      messages: {
+        blog_category: {
+          required: 'Please Enter Blog category',
+        },
+      },
+      errorElement: 'span',
+      errorPlacement: function(error, element) {
+        error.addClass('invalide-feedback');
+        element.closest('.form-group').append(error);
+      },
+      highlight: function(element, errorClassn, validClass) {
+        $(element).addClass('is-invalid');
+      },
+      unhighlight: function(element, errorClassn, validClass) {
+        $(element).removeClass('is-invalid');
       }
-      reader.readAsDataURL(e.target.files['0']);
-    });
-  });
+
+    })
+  })
 </script>
 
 @endsection

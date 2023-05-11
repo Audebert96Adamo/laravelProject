@@ -152,6 +152,9 @@
     <!-- TAGSINPUT -->
     <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
     <!-- TAGS INPUT END -->
+    <!-- VALIDATION (work with jquery) -->
+    <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+    <!-- VALIDATION END -->
 
 </body>
 
