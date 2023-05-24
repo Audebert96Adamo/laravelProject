@@ -414,6 +414,6 @@ Now use in the command prompt :
 php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
 
 
-https://basic.portfolio-ad-au.fr/index.php
+https://basic.portfolio-ad-au.fr
 
 
